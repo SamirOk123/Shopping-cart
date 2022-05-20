@@ -1,18 +1,17 @@
 import 'dart:async';
+import 'package:coorgle_shopping_cart/views/products_screen.dart';
 import 'package:get/get.dart';
-
-import '../views/products_screen.dart';
 
 class SplashScreenController extends GetxController {
   @override
-
-  //Splash screen will last 3 seconds
   void onInit() {
+    //Splash screen will last 3 seconds
     Timer(
-        const Duration(seconds: 3),
-            () => Get.to(
-              () => const ProductsScreen(),
-        ));
+      const Duration(seconds: 3),
+      () => Get.offAll(
+        () => const ProductsScreen(),
+      ),
+    );
     super.onInit();
   }
 }

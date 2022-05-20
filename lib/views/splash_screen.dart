@@ -4,17 +4,18 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class SplashScreen extends StatelessWidget {
-   SplashScreen({Key? key}) : super(key: key);
+  SplashScreen({Key? key}) : super(key: key);
 
+  //Dependency Injection
   final splashScreenController = Get.put(SplashScreenController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset(
-          'assets/images/logo.png',
-          width: MediaQuery.of(context).size.width - 20.w,
+        child: Hero(tag: 'logo_tag',
+          child: Image.asset('assets/images/logo.png',
+              width: MediaQuery.of(context).size.width - 20.w),
         ),
       ),
     );
