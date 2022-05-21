@@ -1,4 +1,5 @@
 import 'package:coorgle_shopping_cart/models/product_model.dart';
+import 'package:coorgle_shopping_cart/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,14 +15,18 @@ class ProductsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Image.asset(
-            'assets/icons/menu.png',
-            height: 6.h,
-            width: 6.w,
-          ),
-        ),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: Image.asset(
+              'assets/icons/menu.png',
+              height: 6.h,
+              width: 6.w,
+            ),
+          );
+        }),
         title: Hero(
             tag: 'logo_tag',
             child: Image.asset(
@@ -40,6 +45,7 @@ class ProductsScreen extends StatelessWidget {
           ),
         ],
       ),
+      drawer: const MyDrawer(),
       body: StaggeredGridView.countBuilder(
         padding:
             const EdgeInsets.only(right: 10, left: 10, bottom: 20, top: 10),
@@ -81,7 +87,7 @@ class ProductsScreen extends StatelessWidget {
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(8), topRight: Radius.circular(8)),
             child: Image.asset(
-             products[index].imagePath,
+              products[index].imagePath,
               fit: BoxFit.contain,
             ),
           ),
@@ -116,7 +122,7 @@ class ProductsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '\$'+products[index].price,
+                    '\$' + products[index].price,
                     style: GoogleFonts.inter(fontWeight: FontWeight.bold),
                   ),
                   Image.asset(
