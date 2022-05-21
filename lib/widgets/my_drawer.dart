@@ -1,5 +1,6 @@
 import 'package:coorgle_shopping_cart/resources/auth_methods.dart';
 import 'package:coorgle_shopping_cart/views/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,29 +18,29 @@ class MyDrawer extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  CircleAvatar(
+                children: [
+                  const CircleAvatar(
                     radius: 50.0,
                     backgroundImage: AssetImage(
                       "assets/images/user.jpg",
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Text(
-                    "Lee Wang",
-                    style: TextStyle(
+                    FirebaseAuth.instance.currentUser!.email!.split('@').first,
+                    style: const TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Text(
-                    "Software Engenieer",
-                    style: TextStyle(
+                    FirebaseAuth.instance.currentUser!.email.toString(),
+                    style: const TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.w400,
                     ),

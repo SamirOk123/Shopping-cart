@@ -1,5 +1,4 @@
 import 'package:coorgle_shopping_cart/controllers/login_controller.dart';
-import 'package:coorgle_shopping_cart/views/products_screen.dart';
 import 'package:coorgle_shopping_cart/views/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

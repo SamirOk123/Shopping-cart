@@ -15,7 +15,7 @@ class SplashScreenController extends GetxController {
       ()async{
         String result =  await checkLogin();
         if(result=='Success'){
-          Get.offAll(ProductsScreen());
+          Get.offAll( ProductsScreen());
         }else{
           Get.offAll(LoginScreen());
         }

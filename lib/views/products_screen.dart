@@ -1,12 +1,17 @@
+import 'package:coorgle_shopping_cart/controllers/cart_controller.dart';
 import 'package:coorgle_shopping_cart/models/product_model.dart';
+import 'package:coorgle_shopping_cart/views/my_cart.dart';
 import 'package:coorgle_shopping_cart/widgets/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 class ProductsScreen extends StatelessWidget {
-  const ProductsScreen({Key? key}) : super(key: key);
+  ProductsScreen({Key? key}) : super(key: key);
+
+  final cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +41,9 @@ class ProductsScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() =>  MyCart());
+            },
             icon: Image.asset(
               'assets/icons/shopping-cart.png',
               width: 6.w,
@@ -56,14 +63,14 @@ class ProductsScreen extends StatelessWidget {
         mainAxisSpacing: 8,
         itemCount: products.length,
         itemBuilder: (context, index) {
-          return buildImageCard(index);
+          return buildImageCard(index, context);
         },
       ),
     );
   }
 
   //Function to create card for grid view
-  Widget buildImageCard(int index) {
+  Widget buildImageCard(int index, BuildContext context) {
     return Column(
       children: [
         Container(
@@ -72,15 +79,15 @@ class ProductsScreen extends StatelessWidget {
               topRight: Radius.circular(8),
               topLeft: Radius.circular(8),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.7),
-                spreadRadius: -5,
-                blurRadius: 10,
-                offset: const Offset(0, 3),
-              ),
-            ],
-            color: Colors.white,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(0.7),
+            //     spreadRadius: -5,
+            //     blurRadius: 10,
+            //     offset: const Offset(0, 3),
+            //   ),
+            // ],
+            color: Colors.grey.withOpacity(0.2),
           ),
           margin: const EdgeInsets.only(top: 8, left: 8, right: 8),
           child: ClipRRect(
@@ -122,13 +129,17 @@ class ProductsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '\$' + products[index].price,
+                    '\$' + products[index].price.toString(),
                     style: GoogleFonts.inter(fontWeight: FontWeight.bold),
                   ),
-                  Image.asset(
-                    'assets/icons/add-to-cart.png',
-                    width: 6.w,
-                    height: 6.h,
+                  InkWell(
+                    onTap: () =>
+                        cartController.addProduct(products[index], context),
+                    child: Image.asset(
+                      'assets/icons/add-to-cart.png',
+                      width: 6.w,
+                      height: 6.h,
+                    ),
                   ),
                 ],
               ),

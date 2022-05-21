@@ -4,13 +4,13 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
 //Instances
-final storage = FlutterSecureStorage();
+FlutterSecureStorage storage = const FlutterSecureStorage();
 
 //SnackBar
 class FunctionsController extends GetxController {
   void showSnackBar({required BuildContext context, required String content}) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(content)),
+      SnackBar(content: Text(content),duration: const Duration(seconds: 1),),
     );
   }
 

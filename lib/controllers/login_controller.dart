@@ -21,7 +21,7 @@ class LoginController extends GetxController {
     String result = await AuthMethods().loginUser(
         email: emailController.text, password: passwordController.text);
     if (result == 'Success') {
-       Get.offAll(() => const ProductsScreen());
+       Get.offAll(() =>  ProductsScreen());
     } else {
       functionsController.showSnackBar(context: context, content: result);
     }

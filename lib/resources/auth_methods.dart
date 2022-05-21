@@ -36,7 +36,7 @@ class AuthMethods {
         });
         result = 'Success';
         functionsController.storeToken(credential: credential);
-        Get.offAll(ProductsScreen());
+        Get.offAll( ProductsScreen());
       }
     } catch (e) {
       result = e.toString();
