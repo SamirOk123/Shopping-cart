@@ -15,13 +15,13 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  //Login user
+  //Function to login user
   Future<void> loginUser(BuildContext context) async {
     isLoading.value = true;
     String result = await AuthMethods().loginUser(
         email: emailController.text, password: passwordController.text);
     if (result == 'Success') {
-       Get.offAll(() =>  ProductsScreen());
+      Get.offAll(() => ProductsScreen());
     } else {
       functionsController.showSnackBar(context: context, content: result);
     }

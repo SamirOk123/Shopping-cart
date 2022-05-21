@@ -21,9 +21,7 @@ class MyDrawer extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     radius: 50.0,
-                    backgroundImage: AssetImage(
-                      "assets/images/user.jpg",
-                    ),
+                    backgroundImage: AssetImage("assets/images/user.jpg"),
                   ),
                   const SizedBox(
                     height: 5.0,

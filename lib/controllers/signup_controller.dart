@@ -23,7 +23,8 @@ class SignupController extends GetxController {
         name: nameController.text,
         phone: phoneController.text,
         email: emailController.text,
-        password: passwordController.text);
+        password: passwordController.text,
+        context: context);
     isLoading.value = false;
     if (result != 'Success') {
       functionsController.showSnackBar(context: context, content: result);

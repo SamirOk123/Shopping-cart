@@ -11,6 +11,7 @@ import 'package:sizer/sizer.dart';
 class ProductsScreen extends StatelessWidget {
   ProductsScreen({Key? key}) : super(key: key);
 
+  //Dependency injection
   final cartController = Get.put(CartController());
 
   @override
@@ -20,18 +21,20 @@ class ProductsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Builder(builder: (context) {
-          return IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: Image.asset(
-              'assets/icons/menu.png',
-              height: 6.h,
-              width: 6.w,
-            ),
-          );
-        }),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Image.asset(
+                'assets/icons/menu.png',
+                height: 6.h,
+                width: 6.w,
+              ),
+            );
+          },
+        ),
         title: Hero(
             tag: 'logo_tag',
             child: Image.asset(
@@ -41,9 +44,7 @@ class ProductsScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
-              Get.to(() =>  MyCart());
-            },
+            onPressed: () => Get.to(() => MyCart()),
             icon: Image.asset(
               'assets/icons/shopping-cart.png',
               width: 6.w,
@@ -79,14 +80,6 @@ class ProductsScreen extends StatelessWidget {
               topRight: Radius.circular(8),
               topLeft: Radius.circular(8),
             ),
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.grey.withOpacity(0.7),
-            //     spreadRadius: -5,
-            //     blurRadius: 10,
-            //     offset: const Offset(0, 3),
-            //   ),
-            // ],
             color: Colors.grey.withOpacity(0.2),
           ),
           margin: const EdgeInsets.only(top: 8, left: 8, right: 8),
@@ -129,7 +122,7 @@ class ProductsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '\$' + products[index].price.toString(),
+                    '\$${products[index].price.toString()}',
                     style: GoogleFonts.inter(fontWeight: FontWeight.bold),
                   ),
                   InkWell(

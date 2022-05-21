@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
-//Instances
+//Instance of flutter secure storage
 FlutterSecureStorage storage = const FlutterSecureStorage();
 
 //SnackBar
 class FunctionsController extends GetxController {
   void showSnackBar({required BuildContext context, required String content}) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(content),duration: const Duration(seconds: 1),),
+      SnackBar(
+        content: Text(content),
+        duration: const Duration(seconds: 1),
+      ),
     );
   }
 
   //Storing user token
   Future<void> storeToken({required UserCredential credential}) async {
-    await storage.write(
-        //TODO: do a null check here in case of null error
-        key: 'userId',
-        value: credential.user!.uid.toString());
+    await storage.write(key: 'userId', value: credential.user!.uid.toString());
   }
 
   //Retrieving user token

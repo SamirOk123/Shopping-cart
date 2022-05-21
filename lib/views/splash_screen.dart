@@ -13,7 +13,8 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Hero(tag: 'logo_tag',
+        child: Hero(
+          tag: 'logo_tag',
           child: Image.asset('assets/images/logo.png',
               width: MediaQuery.of(context).size.width - 20.w),
         ),

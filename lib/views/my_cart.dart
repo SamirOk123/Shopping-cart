@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 class MyCart extends StatelessWidget {
   MyCart({Key? key}) : super(key: key);
 
+  //Dependency injection
   final cartController = Get.put(CartController());
 
   @override
@@ -52,17 +53,17 @@ class MyCart extends StatelessWidget {
             right: 30,
             child: Container(
               height: 7.h,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   color: Colors.black),
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Center(
                 child: Obx(
                   () => Text(
                     cartController.products.isEmpty
                         ? 'Total  \$0'
-                        : 'Total  \$' + cartController.total.toString(),
+                        : 'Total  \$${cartController.total.toString()}',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

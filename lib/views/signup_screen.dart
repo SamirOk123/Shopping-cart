@@ -89,10 +89,10 @@ class SignupScreen extends StatelessWidget {
                       height: 6.h,
                       child: signupController.isLoading.value == true
                           ? const Center(
-                            child: CircularProgressIndicator(
+                              child: CircularProgressIndicator(
                                 color: Colors.white,
                               ),
-                          )
+                            )
                           : Text(
                               'Sign up',
                               style: TextStyle(
@@ -116,7 +116,7 @@ class SignupScreen extends StatelessWidget {
                             color: Colors.black),
                       ),
                       InkWell(
-                        onTap: () => Get.to(() =>  LoginScreen()),
+                        onTap: () => Get.to(() => LoginScreen()),
                         child: Text(
                           'Login',
                           style: GoogleFonts.inter(

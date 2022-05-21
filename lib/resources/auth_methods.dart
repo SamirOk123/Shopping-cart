@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coorgle_shopping_cart/controllers/functions_controller.dart';
 import 'package:coorgle_shopping_cart/views/products_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class AuthMethods {
@@ -16,7 +17,8 @@ class AuthMethods {
       {required String name,
       required String phone,
       required String email,
-      required String password}) async {
+      required String password,
+      required BuildContext context}) async {
     String result = 'Some error occured';
     try {
       if (name.isNotEmpty ||
@@ -26,7 +28,6 @@ class AuthMethods {
         //Registering user
         UserCredential credential = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
-           
 
         //Adding user to database
         await _firestore.collection('users').doc(credential.user!.uid).set({
@@ -35,8 +36,9 @@ class AuthMethods {
           'email': email,
         });
         result = 'Success';
+        //Storing token
         functionsController.storeToken(credential: credential);
-        Get.offAll( ProductsScreen());
+        Get.offAll(ProductsScreen());
       }
     } catch (e) {
       result = e.toString();
@@ -50,7 +52,7 @@ class AuthMethods {
     String result = 'Some error occured';
     try {
       if (email.isNotEmpty || password.isNotEmpty) {
-      UserCredential credential=  await _auth.signInWithEmailAndPassword(
+        UserCredential credential = await _auth.signInWithEmailAndPassword(
             email: email, password: password);
         result = 'Success';
         functionsController.storeToken(credential: credential);
@@ -64,7 +66,7 @@ class AuthMethods {
   }
 
   //Logout user
-  Future<void> logoutUser ()async{
+  Future<void> logoutUser() async {
     await _auth.signOut();
     await storage.delete(key: 'userId');
   }

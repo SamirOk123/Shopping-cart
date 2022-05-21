@@ -13,13 +13,12 @@ class CartCard extends StatelessWidget {
 
   final CartController controller;
   final Product product;
-
   final int index;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 15,left: 8,right: 8),
+      margin: const EdgeInsets.only(bottom: 15, left: 8, right: 8),
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 20.h,
       width: MediaQuery.of(context).size.width - 10.w,
@@ -51,7 +50,8 @@ class CartCard extends StatelessWidget {
                     )),
                 width: 15.h,
                 height: 15.h,
-              ),SizedBox(width: 20),
+              ),
+              const SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +64,7 @@ class CartCard extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    '\$' + product.price.toString(),
+                    '\$${product.price.toString()}',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -81,11 +81,10 @@ class CartCard extends StatelessWidget {
                   color: Color(0xff1c8bc0),
                 ),
               ),
-               Text(
-                  controller.products.values.toList()[index].toString(),
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              
+              Text(
+                controller.products.values.toList()[index].toString(),
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
               InkWell(
                 onTap: () => controller.removeProduct(product),
                 child: const Icon(
