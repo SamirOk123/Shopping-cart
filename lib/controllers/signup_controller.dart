@@ -1,4 +1,5 @@
 import 'package:coorgle_shopping_cart/controllers/functions_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/resources/auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,8 +8,7 @@ class SignupController extends GetxController {
   //Variable to show loading indicator while signing up.
   var isLoading = false.obs;
 
-  //Dependency injection
-  final functionsController = Get.put(FunctionsController());
+
 
 //Textfield controllers
   final nameController = TextEditingController();

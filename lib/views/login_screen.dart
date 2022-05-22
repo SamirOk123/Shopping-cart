@@ -1,4 +1,5 @@
 import 'package:coorgle_shopping_cart/controllers/login_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/views/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +9,7 @@ import 'package:sizer/sizer.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  //Dependency injection
-  final loginController = Get.put(LoginController());
+  
 
   @override
   Widget build(BuildContext context) {

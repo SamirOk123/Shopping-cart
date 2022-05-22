@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coorgle_shopping_cart/controllers/functions_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/views/products_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class AuthMethods {
-  //Dependency injection
-  final functionsController = Get.put(FunctionsController());
+  
   //Instances
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

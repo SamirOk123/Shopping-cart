@@ -1,4 +1,5 @@
 import 'package:coorgle_shopping_cart/controllers/cart_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/widgets/cart_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +9,8 @@ import 'package:sizer/sizer.dart';
 class MyCart extends StatelessWidget {
   MyCart({Key? key}) : super(key: key);
 
-  //Dependency injection
-  final cartController = Get.put(CartController());
+  
+ 
 
   @override
   Widget build(BuildContext context) {

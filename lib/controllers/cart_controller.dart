@@ -1,11 +1,11 @@
 import 'package:coorgle_shopping_cart/controllers/functions_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/models/product_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
-  //Dependency injection
-  final functionsController = Get.put(FunctionsController());
+  
 
 //Map to store products in the cart
   var products = {}.obs;

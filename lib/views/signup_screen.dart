@@ -1,4 +1,5 @@
 import 'package:coorgle_shopping_cart/controllers/signup_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +9,8 @@ import 'package:sizer/sizer.dart';
 class SignupScreen extends StatelessWidget {
   SignupScreen({Key? key}) : super(key: key);
 
-//Dependency injection
-  final signupController = Get.put(SignupController());
+
+  
 
   @override
   Widget build(BuildContext context) {

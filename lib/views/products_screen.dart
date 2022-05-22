@@ -1,4 +1,5 @@
 import 'package:coorgle_shopping_cart/controllers/cart_controller.dart';
+import 'package:coorgle_shopping_cart/instances.dart';
 import 'package:coorgle_shopping_cart/models/product_model.dart';
 import 'package:coorgle_shopping_cart/views/my_cart.dart';
 import 'package:coorgle_shopping_cart/widgets/my_drawer.dart';
@@ -11,8 +12,7 @@ import 'package:sizer/sizer.dart';
 class ProductsScreen extends StatelessWidget {
   ProductsScreen({Key? key}) : super(key: key);
 
-  //Dependency injection
-  final cartController = Get.put(CartController());
+
 
   @override
   Widget build(BuildContext context) {
